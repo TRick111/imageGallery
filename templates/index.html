@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+
+    <body>
+        <h1 class="serif"> PIPS streamer </h1>
+        <div>
+            <img src="http://192.168.100.123:8080/?action=stream">
+        </div>
+        <div>
+            <form method="post" action="http://localhost:5000">
+                <input type="submit" value="snapshot" name="action" class="btn">
+                <input type="submit" value="stop" name="action" class="btn">
+            </form>
+        </div>
+        <div>
+            <p class="serif"> {{message}} </p>
+        </div>
+        {% for image in images %}
+        <div class="gallery">
+            <a target="_blank" href="{{filePath + image}}">
+                <img src="{{filePath + image}}" alt="{{image}}" width="140" height="140">
+            </a>
+            <div class="desc"> {{image}} </div>
+        </div>
+        {% endfor %}
+    </body>
+</html>
